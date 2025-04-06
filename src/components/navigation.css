@@ -1,0 +1,32 @@
+.navigation-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    height: 120px;
+    align-content: flex-end;
+}
+
+.navigation-links {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    margin: 50px;
+    gap: 15px;
+    list-style: none;
+}
+
+.default-link {
+    text-decoration: none;
+    font-family: 'Merriweather', sans-serif;
+    font-size: 1.5rem;
+    color: #7F171F;
+}
+
+.default-link:hover {
+    text-decoration: underline;
+}
+
+.active-link {
+    text-decoration: underline;
+}
