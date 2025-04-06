@@ -1,14 +1,21 @@
 import React from 'react';
-import {Link} from "react-router-dom";
+import { NavLink } from 'react-router-dom';
+import '/src/components/navigation.css';
+import logo from '/src/assets/images/logo-winedine.png';
+import line from '/src/assets/images/Line 1.png'
 
 function Navigation() {
     return (
+        <div className="navigation-header">
+            <img src={logo} alt="Logo" width="300px"/>
         <nav className="navigation">
-            <ul>
-                <li><Link to="/" className="default-link">Search</Link></li>
-                <li><Link to="/favorites" className="default-link">Favorites</Link></li>
+            <ul className="navigation-links">
+                <li><NavLink to="/" className={({ isActive }) => isActive ? "default-link active-link" : "default-link"}>Search</NavLink></li>
+                <img src={line} alt="Line 1"/>
+                <li><NavLink to="/favorites" className={({ isActive }) => isActive ? "default-link active-link" : "default-link"}>Favorites</NavLink></li>
             </ul>
         </nav>
+        </div>
     );
 }
 
