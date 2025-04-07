@@ -14,9 +14,10 @@ function Results() {
     useEffect(() => {
         async function fetchPairing() {
             try {
+                const apiKey = import.meta.env.VITE_SPOONACULAR_API_KEY;
                 const { data } = await axios.get('https://api.spoonacular.com/food/wine/pairing', {
                     params: {
-                        apiKey: '4ace51108fb34415b64606f68c88f114',
+                        apiKey: apiKey,
                         food: query
                     }
                 });
