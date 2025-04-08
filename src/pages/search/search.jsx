@@ -1,15 +1,15 @@
 import React from 'react';
-import '/src/pages/search/search.css'
-import vineyard from '/src/assets/images/vineyard.jpg'
-import axios from "axios";
+import { useNavigate } from 'react-router-dom';
+import '/src/pages/search/search.css';
+import vineyard from '/src/assets/images/vineyard.jpg';
 
 function Search() {
-    const [query, setQuery] = React.useState("");  // Huidige zoekterm
-    const [showSuggestions, setShowSuggestions] = React.useState(false);  // Of suggesties getoond moeten worden
-    const [suggestions, setSuggestions] = React.useState([]);  // Lijst van suggesties
-    const [pairing, setPairing] = React.useState(null);  // Wijnpairing data
+    const [query, setQuery] = React.useState("");
+    const [showSuggestions, setShowSuggestions] = React.useState(false);
+    const [suggestions, setSuggestions] = React.useState([]);
 
-    // Hardcoded lijst van pairable gerechten
+    const navigate = useNavigate();
+
     const pairableFoods = [
         "steak", "pasta carbonara", "chicken", "salmon", "pasta", "lamb", "pork", "duck",
         "mushrooms", "cheddar", "blue cheese", "shrimp", "scallops", "tofu", "pizza", "hamburger", "sushi",
@@ -26,7 +26,6 @@ function Search() {
         "steamed mussels", "scampi"
     ];
 
-    // Handelt de inputverandering (laat suggesties zien)
     const handleInputChange = (e) => {
         const input = e.target.value.toLowerCase();
         setQuery(input);
@@ -43,22 +42,14 @@ function Search() {
         }
     };
 
-    const selectedDishClick = async (selectedDish) => {
-        setQuery(selectedDish);
+    const handleSuggestionClick = (dish) => {
+        setQuery(dish);
         setShowSuggestions(false);
+    };
 
-        try {
-            const { data } = await axios.get('https://api.spoonacular.com/food/wine/pairing', {
-                params: {
-                    apiKey: '4ace51108fb34415b64606f68c88f114',
-                    food: selectedDish
-                }
-            });
-            console.log(data);
-            setPairing(data);
-        } catch (error) {
-            console.error("Error fetching wine pairing:", error);
-            setPairing(null);
+    const handleSearch = () => {
+        if(query.trim()) {
+            navigate(`/results?query=${query}`);
         }
     };
 
@@ -68,13 +59,18 @@ function Search() {
                 <h1>What wine goes with ..?</h1>
                 <div className="search-container">
                     <div className="search-box">
-                        <input type="text" value={query} onChange={handleInputChange} placeholder="Search for dish..."/>
-                        <button className="search-button" onClick={() => console.log({query})}>Search</button>
+                        <input
+                            type="text"
+                            value={query}
+                            onChange={handleInputChange}
+                            placeholder="Search for dish..."
+                        />
+                        <button className="search-button" onClick={handleSearch}>Search</button>
                     </div>
                     {showSuggestions && suggestions.length > 0 && (
                         <ul className="suggestions">
                             {suggestions.map((dish, index) => (
-                                <li key={index} onClick={() => selectedDishClick(dish)}>
+                                <li key={index} onClick={() => handleSuggestionClick(dish)}>
                                     {dish}
                                 </li>
                             ))}

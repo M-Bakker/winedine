@@ -1,8 +1,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import '/src/components/navigation.css';
+import '/src/components/navigation/navigation.css';
 import logo from '/src/assets/images/logo-winedine.png';
-import line from '/src/assets/images/Line 1.png'
+import line from '/src/assets/images/line-1.png'
 
 function Navigation() {
     return (
