@@ -7,7 +7,7 @@ import Results from "./pages/results/results.jsx";
 import Details from "./pages/details/details.jsx";
 import Favorites from "./pages/favorites/favorites.jsx";
 import NotFound from "./pages/notFound/notFound.jsx";
-import Navigation from "./components/navigation.jsx";
+import Navigation from "./components/navigation/navigation.jsx";
 
 function App() {
     return (
