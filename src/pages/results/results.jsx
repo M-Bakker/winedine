@@ -69,7 +69,7 @@ function Results() {
             </div>
             <img className="line-2" src={line} alt="Line 2" />
             <div className="results-header">
-                <h1>Our best picks</h1>
+                <h1>Best picks for {selectedWineCategory}:</h1>
                 <div className="results-content detail-cards-container">
                     <DetailCard selectedWineCategory={selectedWineCategory} />
                 </div>

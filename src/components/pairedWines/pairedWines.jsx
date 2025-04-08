@@ -9,7 +9,7 @@ function PairedWines({ wines = [], onWineClick, selectedWineCategory, text }) {
                     <div
                         className={`paired-wine-box ${selectedWineCategory === wine ? 'active' : ''}`}
                         key={index}
-                        onClick={() => onWineClick(wine)}
+                        onClick={() => onWineClick && onWineClick(wine)}
                     >
                         <h2>{wine}</h2>
                     </div>
