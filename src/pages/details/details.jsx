@@ -3,6 +3,7 @@ import {useLocation, useNavigate} from 'react-router-dom';
 import addToFavoritesIcon from '/src/assets/images/add-to-favorites-icon.png';
 import checkFavoritesIcon from '/src/assets/images/check-favorites-icon.png';
 import './details.css';
+import line from "../../assets/images/line-2.png";
 
 function DetailPage() {
     const location = useLocation();
@@ -70,17 +71,19 @@ function DetailPage() {
                     </div>
                 </div>
             </section>
-            <section>
+            <figure>
+                <img className="line-2" src={line} alt="Line 2"/>
+            </figure>
+            <section className="details-section">
                 <figure className="details-image">
                     <img src={imageUrl} alt={title}/>
                 </figure>
                 <button
-                    className="favorite-button"
                     onClick={toggleFavorite}
-                    style={{ background: 'none', border: 'none', cursor: 'pointer' }}
+                    style={{background: 'none', border: 'none', cursor: 'pointer'}}
                     aria-label="Toggle Favorite"
                 >
-                    {isFavorite ? <img src={checkFavoritesIcon} alt="Add to favorites" /> :
+                    {isFavorite ? <img src={checkFavoritesIcon} alt="Add to favorites"/> :
                         <img src={addToFavoritesIcon} alt="Already in favorites"/>}
                 </button>
             </section>

@@ -26,3 +26,13 @@ main {
   width: 80%;
 }
 
+main section {
+  display: flex;
+  width: 45%;
+}
+
+main figure {
+  display: flex;
+  width: 10%;
+  height: 100%;
+}
