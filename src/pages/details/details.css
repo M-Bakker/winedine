@@ -1,0 +1,27 @@
+.details-section {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 2rem;
+    min-height: 100vh;
+}
+
+.details-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.details-image img {
+    max-width: 200px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.details-info {
+    flex: 1;
+}
+
+.details-info p {
+    margin: 0.5rem 0;
+}

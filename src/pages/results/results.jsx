@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, {useState, useEffect} from 'react';
 import axios from 'axios';
-import { useLocation } from 'react-router-dom';
+import {useLocation} from 'react-router-dom';
 import PairedWines from '/src/components/pairedWines/pairedWines.jsx';
 import DetailCard from '/src/components/detailCard/detailCard.jsx';
 import './results.css';
@@ -20,8 +20,8 @@ function Results() {
             try {
                 setLoadingPairing(true);
                 const apiKey = import.meta.env.VITE_SPOONACULAR_API_KEY;
-                const { data } = await axios.get('https://api.spoonacular.com/food/wine/pairing', {
-                    params: { apiKey, food: query }
+                const {data} = await axios.get('https://api.spoonacular.com/food/wine/pairing', {
+                    params: {apiKey, food: query}
                 });
                 console.log("Pairing data:", data);
                 setPairing(data);
@@ -36,6 +36,7 @@ function Results() {
                 setLoadingPairing(false);
             }
         }
+
         if (query) {
             fetchPairing();
         }
@@ -52,11 +53,11 @@ function Results() {
         return <div className="results-page"><p>No pairing data available.</p></div>;
     }
 
-    const { pairedWines, pairingText } = pairing;
+    const {pairedWines, pairingText} = pairing;
 
     return (
-        <div className="results-page">
-            <div className="results-header">
+        <main className="results-page">
+            <section className="results-section ">
                 <h1>What wine goes with {query}?</h1>
                 <div className="results-content">
                     <PairedWines
@@ -66,15 +67,17 @@ function Results() {
                         text={pairingText}
                     />
                 </div>
-            </div>
-            <img className="line-2" src={line} alt="Line 2" />
-            <div className="results-header">
+            </section>
+            <figure>
+                <img className="line-2" src={line} alt="Line 2"/>
+            </figure>
+            <section className="results-section ">
                 <h1>Best picks for {selectedWineCategory}:</h1>
                 <div className="results-content detail-cards-container">
-                    <DetailCard selectedWineCategory={selectedWineCategory} />
+                    <DetailCard selectedWineCategory={selectedWineCategory}/>
                 </div>
-            </div>
-        </div>
+            </section>
+        </main>
     );
 }
 

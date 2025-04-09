@@ -1,8 +1,10 @@
 import React, {useState} from 'react';
 import {useWineRecommendations} from '../../hooks/useWineRecommendations';
+import { useNavigate } from 'react-router-dom';
 import './detailCard.css';
 
 function DetailCard({selectedWineCategory}) {
+    const navigate = useNavigate();
     const {recommendedWines, loadingRecommendations} = useWineRecommendations(selectedWineCategory);
     const [currentDetailIndex, setCurrentDetailIndex] = useState(0);
 
@@ -28,10 +30,9 @@ function DetailCard({selectedWineCategory}) {
         return description.length > 200 ? description.slice(0, 200) + "..." : description;
     };
 
+
     const handleCardClick = () => {
-        // Zorg dat product.id aanwezig is; als dit niet het geval is,
-        // kun je eventueel een fallback toepassen (bijvoorbeeld index).
-        navigate(`/detailPage?id=${product.id}`);
+        navigate(`/details`, { state: { product } });
     };
     return (
         <div className="recommendations">
