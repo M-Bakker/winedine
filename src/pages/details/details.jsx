@@ -1,34 +1,29 @@
 import React from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import {useLocation, useNavigate} from 'react-router-dom';
 import './details.css';
 
 function DetailPage() {
     const location = useLocation();
     const navigate = useNavigate();
 
-    const { product } = location.state || {};
+    const {product} = location.state || {};
     console.log(product);
 
     if (!product) {
         return (
-            <div className="details-page">
+            <div className="details-section">
                 <p>No product data available.</p>
                 <button onClick={() => navigate(-1)}>Go back</button>
             </div>
         );
     }
 
-    const {title, description, imageUrl, price, averageRating, link } = product;
+    const {title, description, imageUrl, price, averageRating, link} = product;
 
     return (
-        <div className="details-page">
-            <div className="details-header">
+        <main className="details-section">
+            <section className="details-content">
                 <h1>{title}</h1>
-            </div>
-            <div className="details-content">
-                <div className="details-image">
-                    <img src={imageUrl} alt={title} />
-                </div>
                 <div className="details-info">
                     <p>{description}</p>
                     <p>Price: {price}</p>
@@ -47,8 +42,13 @@ function DetailPage() {
                         <button className="back-button" onClick={() => navigate(-1)}>Go back</button>
                     </div>
                 </div>
-            </div>
-        </div>
+            </section>
+            <section>
+                <figure className="details-image">
+                    <img src={imageUrl} alt={title}/>
+                </figure>
+            </section>
+        </main>
     );
 }
 
