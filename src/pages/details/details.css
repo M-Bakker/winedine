@@ -1,0 +1,27 @@
+.details-page {
+    padding: 2rem;
+    min-height: 100vh;
+}
+
+.details-header {
+    margin-bottom: 1.5rem;
+}
+
+.details-content {
+    display: flex;
+    gap: 2rem;
+}
+
+.details-image img {
+    max-width: 200px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.details-info {
+    flex: 1;
+}
+
+.details-info p {
+    margin: 0.5rem 0;
+}
