@@ -73,7 +73,7 @@ function Results() {
             </figure>
             <section className="results-section ">
                 <h1>Best picks for {selectedWineCategory}:</h1>
-                <div className="results-content detail-cards-container">
+                <div className="results-content">
                     <DetailCard selectedWineCategory={selectedWineCategory}/>
                 </div>
             </section>
