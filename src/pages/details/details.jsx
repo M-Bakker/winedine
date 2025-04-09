@@ -1,5 +1,7 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {useLocation, useNavigate} from 'react-router-dom';
+import addToFavoritesIcon from '/src/assets/images/add-to-favorites-icon.png';
+import checkFavoritesIcon from '/src/assets/images/check-favorites-icon.png';
 import './details.css';
 
 function DetailPage() {
@@ -7,7 +9,32 @@ function DetailPage() {
     const navigate = useNavigate();
 
     const {product} = location.state || {};
-    console.log(product);
+    const [isFavorite, setIsFavorite] = useState(false);
+    const loadFavorites = () => {
+        const storedFavorites = localStorage.getItem('favorites');
+        return storedFavorites ? JSON.parse(storedFavorites) : [];
+    };
+
+    useEffect(() => {
+        if (product && product.id) {
+            const favorites = loadFavorites();
+            const exists = favorites.some(fav => String(fav.id) === String(product.id));
+            setIsFavorite(exists);
+        }
+    }, [product]);
+
+    const toggleFavorite = () => {
+        const favorites = loadFavorites();
+        let updatedFavorites;
+        if (favorites.some(fav => String(fav.id) === String(product.id))) {
+            updatedFavorites = favorites.filter(fav => String(fav.id) !== String(product.id));
+            setIsFavorite(false);
+        } else {
+            updatedFavorites = [...favorites, product];
+            setIsFavorite(true);
+        }
+        localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
+    };
 
     if (!product) {
         return (
@@ -47,9 +74,19 @@ function DetailPage() {
                 <figure className="details-image">
                     <img src={imageUrl} alt={title}/>
                 </figure>
+                <button
+                    className="favorite-button"
+                    onClick={toggleFavorite}
+                    style={{ background: 'none', border: 'none', cursor: 'pointer' }}
+                    aria-label="Toggle Favorite"
+                >
+                    {isFavorite ? <img src={checkFavoritesIcon} alt="Add to favorites" /> :
+                        <img src={addToFavoritesIcon} alt="Already in favorites"/>}
+                </button>
             </section>
         </main>
     );
 }
 
 export default DetailPage;
+
