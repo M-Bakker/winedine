@@ -34,7 +34,7 @@ function DetailCard({selectedWineCategory}) {
         navigate(`/details`, {state: {product}});
     };
     return (
-        <div className="recommendations">
+        <section className="recommendations">
             <div className="detail-card" onClick={handleCardClick} style={{cursor: 'pointer'}}>
                 <div className="detail-card-info">
                     <h3>{product.title}</h3>
@@ -57,7 +57,7 @@ function DetailCard({selectedWineCategory}) {
                 <button onClick={handleNext} disabled={currentDetailIndex === recommendedWines.length - 1}>Next
                 </button>
             </div>
-        </div>
+        </section>
 
     );
 }

@@ -17,9 +17,8 @@
 }
 
 .detail-card-image {
-    max-width: 100px;
-    display: block;
-    margin-bottom: 1rem;
+    max-width: 150px;
+
 }
 
 .pagination-controls {
