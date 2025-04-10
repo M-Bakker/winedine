@@ -17,7 +17,12 @@
 }
 
 .favorites-cards {
+    max-height: 60%;
+    overflow-y: scroll;
+    padding: 1rem;
+    gap: 1rem;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    border: #7F171F 2px dotted;
+    border-radius: 10px;
 }
