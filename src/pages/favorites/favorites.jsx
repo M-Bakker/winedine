@@ -6,6 +6,7 @@ import heart from "../../assets/images/wine-heart.png";
 
 function Favorites() {
     const [favorites, setFavorites] = useState([]);
+    const [searchTerm, setSearchTerm] = useState("");
 
     const loadFavorites = () => {
         const storedFavorites = localStorage.getItem('favorites');
@@ -17,24 +18,27 @@ function Favorites() {
         loadFavorites();
     }, []);
 
-    const handleRemoveFavorite = () => {
-        loadFavorites();
-    };
+    const filteredFavorites = favorites.filter((product) =>
+        product.title.toLowerCase().includes(searchTerm.toLowerCase())
+    );
 
     return (
         <main className="favorites-page">
             <section className="favorites-section">
                 <h1>Your Favorites</h1>
-                {favorites.length === 0 ? (
+                <input
+                    type="text"
+                    placeholder="Search favorites..."
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                    className="favorites-search"
+                />
+                {filteredFavorites.length === 0 ? (
                     <p>You have no favorites yet.</p>
                 ) : (
                     <section className="favorites-cards">
-                        {favorites.map((product, index) => (
-                            <FavoriteCard
-                                key={product.id || index}
-                                product={product}
-                                onRemove={handleRemoveFavorite}
-                            />
+                        {filteredFavorites.map((product, index) => (
+                            <FavoriteCard key={product.id || index} product={product} />
                         ))}
                     </section>
                 )}
