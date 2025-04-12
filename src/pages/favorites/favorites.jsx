@@ -7,28 +7,40 @@ import heart from "../../assets/images/wine-heart.png";
 function Favorites() {
     const [favorites, setFavorites] = useState([]);
 
-    useEffect(() => {
+    const loadFavorites = () => {
         const storedFavorites = localStorage.getItem('favorites');
         const favs = storedFavorites ? JSON.parse(storedFavorites) : [];
         setFavorites(favs);
+    };
+
+    useEffect(() => {
+        loadFavorites();
     }, []);
+
+    const handleRemoveFavorite = () => {
+        loadFavorites();
+    };
 
     return (
         <main className="favorites-page">
-            <section  className="favorites-section">
+            <section className="favorites-section">
                 <h1>Your Favorites</h1>
                 {favorites.length === 0 ? (
                     <p>You have no favorites yet.</p>
                 ) : (
                     <section className="favorites-cards">
                         {favorites.map((product, index) => (
-                            <FavoriteCard key={product.id || index} product={product}/>
+                            <FavoriteCard
+                                key={product.id || index}
+                                product={product}
+                                onRemove={handleRemoveFavorite}
+                            />
                         ))}
                     </section>
                 )}
             </section>
             <figure className="line-2">
-                <img  src={line} alt="Line 2"/>
+                <img src={line} alt="Line 2"/>
             </figure>
             <section className="favorites-section">
                 <figure>
