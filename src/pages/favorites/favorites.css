@@ -1,0 +1,41 @@
+.favorites-page {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+    color: #4e1f1f;
+    min-height: 100vh;
+    margin-top: 100px;
+}
+
+.favorites-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 2rem;
+}
+
+.favorites-cards {
+    max-height: 60%;
+    overflow-y: scroll;
+    padding: 1rem;
+    gap: 1rem;
+    display: flex;
+    flex-direction: column;
+    border: #7F171F 2px dotted;
+    border-radius: 10px;
+}
+
+.favorites-search {
+    width: 300px;
+    padding: 0.5rem 1rem;
+    margin: 0.5rem auto;
+    border: 1px solid #7F171F;
+    border-radius: 100px;
+    background-color: #FFA3A4;
+    color: white;
+    text-align: center;
+    font-size: 1em;
+    outline: none;
+}

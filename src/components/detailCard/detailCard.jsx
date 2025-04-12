@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {useWineRecommendations} from '../../hooks/useWineRecommendations';
-import { useNavigate } from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 import './detailCard.css';
 
 function DetailCard({selectedWineCategory}) {
@@ -30,35 +30,34 @@ function DetailCard({selectedWineCategory}) {
         return description.length > 200 ? description.slice(0, 200) + "..." : description;
     };
 
-
     const handleCardClick = () => {
-        navigate(`/details`, { state: { product } });
+        navigate(`/details`, {state: {product}});
     };
     return (
-        <div className="recommendations">
-        <div className="detail-card" onClick={handleCardClick} style={{ cursor: 'pointer' }}>
-            <div className="detail-card-info">
-                <h3>{product.title}</h3>
-                <p>{trimDescription(product.description)}</p>
-                <p>Price: {product.price}</p>
-                <p>Average rating: {product.averageRating}</p>
+        <section className="recommendations">
+            <div className="detail-card" onClick={handleCardClick} style={{cursor: 'pointer'}}>
+                <div className="detail-card-info">
+                    <h3>{product.title}</h3>
+                    <p>{trimDescription(product.description)}</p>
+                    <p>Price: {product.price}</p>
+                    <p>Average rating: {product.averageRating}</p>
+
+                </div>
+                <div className="detail-card-img">
+                    <img
+                        src={product.imageUrl}
+                        alt={product.title}
+                        className="detail-card-image"
+                    />
+                </div>
 
             </div>
-            <div className="detail-card-img">
-                <img
-                    src={product.imageUrl}
-                    alt={product.title}
-                    className="detail-card-image"
-                />
-            </div>
-
-        </div>
             <div className="pagination-controls">
                 <button onClick={handlePrev} disabled={currentDetailIndex === 0}>Previous</button>
                 <button onClick={handleNext} disabled={currentDetailIndex === recommendedWines.length - 1}>Next
                 </button>
             </div>
-        </div>
+        </section>
 
     );
 }

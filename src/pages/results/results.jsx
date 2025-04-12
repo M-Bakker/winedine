@@ -68,12 +68,12 @@ function Results() {
                     />
                 </div>
             </section>
-            <figure>
-                <img className="line-2" src={line} alt="Line 2"/>
+            <figure className="line-2">
+                <img  src={line} alt="Line 2"/>
             </figure>
             <section className="results-section ">
                 <h1>Best picks for {selectedWineCategory}:</h1>
-                <div className="results-content detail-cards-container">
+                <div className="results-content">
                     <DetailCard selectedWineCategory={selectedWineCategory}/>
                 </div>
             </section>
