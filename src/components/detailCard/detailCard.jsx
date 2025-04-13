@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {useWineRecommendations} from '../../hooks/useWineRecommendations';
 import {useNavigate} from 'react-router-dom';
 import './detailCard.css';
@@ -7,6 +7,10 @@ function DetailCard({selectedWineCategory}) {
     const navigate = useNavigate();
     const {recommendedWines, loadingRecommendations} = useWineRecommendations(selectedWineCategory);
     const [currentDetailIndex, setCurrentDetailIndex] = useState(0);
+
+    useEffect(() => {
+        setCurrentDetailIndex(0);
+    }, [selectedWineCategory]);
 
     const handlePrev = () => {
         if (currentDetailIndex > 0) setCurrentDetailIndex(currentDetailIndex - 1);
