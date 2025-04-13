@@ -6,6 +6,8 @@ export function useWineRecommendations(selectedWineCategory) {
     const [loadingRecommendations, setLoadingRecommendations] = useState(false);
 
     useEffect(() => {
+        const controller = new AbortController();
+
         async function fetchRecommendations() {
             if (!selectedWineCategory) return;
             try {
@@ -15,8 +17,9 @@ export function useWineRecommendations(selectedWineCategory) {
                     params: {
                         apiKey,
                         wine: selectedWineCategory,
-                        number: 5
-                    }
+                        number: 5,
+                    },
+                    signal: controller.signal,
                 });
                 if (data.totalFound === 0 || !data.recommendedWines || data.recommendedWines.length === 0) {
                     setRecommendedWines([]);
@@ -31,6 +34,9 @@ export function useWineRecommendations(selectedWineCategory) {
             }
         }
         fetchRecommendations();
+        return () => {
+            controller.abort();
+        };
     }, [selectedWineCategory]);
 
     return { recommendedWines, loadingRecommendations };

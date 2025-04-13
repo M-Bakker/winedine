@@ -1,10 +1,10 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext, useEffect, useRef, useState} from 'react';
 import line from "../../assets/images/line-2.png";
 import logo from "../../assets/images/logo-winedine.png";
 import winebottles from "/src/assets/images/wijnflessen.png";
 import './login.css';
 import axios from "axios";
-import { AuthContext } from "../../context/authContext.jsx";
+import {AuthContext} from "../../context/authContext.jsx";
 
 function Login() {
     const [isRegister, setIsRegister] = useState(false);
@@ -13,10 +13,21 @@ function Login() {
     const [userName, setUserName] = useState("");
     const { login } = useContext(AuthContext);
     const [error, setError] = useState("");
+    const abortControllerRef = useRef(null);
+
+    useEffect(() => {
+        return () => {
+            if (abortControllerRef.current) {
+                abortControllerRef.current.abort();
+            }
+        };
+    }, []);
 
     const handleSubmit = async (event) => {
         event.preventDefault();
         setError("");
+        const controller = new AbortController();
+        abortControllerRef.current = controller;
         if (isRegister) {
             try {
                 const response = await axios.post("https://frontend-educational-backend.herokuapp.com/api/auth/signup", {
@@ -24,7 +35,9 @@ function Login() {
                     email: email,
                     password: password,
                     role: ["user"]
-                });
+                },
+                    { signal: controller.signal }
+                );
                 console.log(response);
             } catch (error) {
                 console.log(error);
@@ -35,6 +48,7 @@ function Login() {
                 setUserName("");
                 setEmail("");
                 setPassword("");
+                abortControllerRef.current = null;
             }
             console.log("Registering user:", userName, email, password);
         } else {
@@ -50,6 +64,8 @@ function Login() {
             } catch (error) {
                 console.log(error.response ? error.response.data : error);
                 setError("Unknown username or password.");
+            } finally {
+                abortControllerRef.current = null;
             }
         }
     };
