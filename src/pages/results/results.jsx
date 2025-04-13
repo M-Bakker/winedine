@@ -57,7 +57,7 @@ function Results() {
 
     return (
         <main className="results-page">
-            <section className="results-section ">
+            <section className="page-section ">
                 <h1>What wine goes with {query}?</h1>
                 <div className="results-content">
                     <PairedWines
@@ -71,7 +71,7 @@ function Results() {
             <figure className="line-2">
                 <img  src={line} alt="Line 2"/>
             </figure>
-            <section className="results-section ">
+            <section className="page-section ">
                 <h1>Best picks for {selectedWineCategory}:</h1>
                 <div className="results-content">
                     <DetailCard selectedWineCategory={selectedWineCategory}/>

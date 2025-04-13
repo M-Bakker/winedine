@@ -27,15 +27,4 @@
     border-radius: 10px;
 }
 
-.favorites-search {
-    width: 300px;
-    padding: 0.5rem 1rem;
-    margin: 0.5rem auto;
-    border: 1px solid #7F171F;
-    border-radius: 100px;
-    background-color: #FFA3A4;
-    color: white;
-    text-align: center;
-    font-size: 1em;
-    outline: none;
-}
+
