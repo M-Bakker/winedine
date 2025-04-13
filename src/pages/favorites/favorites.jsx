@@ -18,6 +18,10 @@ function Favorites() {
         loadFavorites();
     }, []);
 
+    const handleRemoveFavorite = () => {
+        loadFavorites();
+    };
+
     const filteredFavorites = favorites.filter((product) =>
         product.title.toLowerCase().includes(searchTerm.toLowerCase())
     );
@@ -38,7 +42,7 @@ function Favorites() {
                 ) : (
                     <section className="favorites-cards">
                         {filteredFavorites.map((product, index) => (
-                            <FavoriteCard key={product.id || index} product={product} />
+                            <FavoriteCard key={product.id || index} product={product} onRemove={handleRemoveFavorite}/>
                         ))}
                     </section>
                 )}

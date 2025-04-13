@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import './App.css';
 import {Routes, Route} from 'react-router-dom';
 import Login from "./pages/login/login.jsx";
@@ -8,8 +8,11 @@ import Details from "./pages/details/details.jsx";
 import Favorites from "./pages/favorites/favorites.jsx";
 import NotFound from "./pages/notFound/notFound.jsx";
 import Navigation from "./components/navigation/navigation.jsx";
+import { AuthContext } from './context/AuthContext.jsx';
 
 function App() {
+    const { isAuth } = useContext(AuthContext);
+
     return (
         <>
             <Navigation />
