@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import axios from 'axios';
 import {useLocation} from 'react-router-dom';
 import PairedWines from '/src/components/pairedWines/pairedWines.jsx';
@@ -14,15 +14,20 @@ function Results() {
     const location = useLocation();
     const params = new URLSearchParams(location.search);
     const query = params.get('query');
+    const abortControllerRef = useRef(null);
 
     useEffect(() => {
         async function fetchPairing() {
+            const controller = new AbortController();
+            abortControllerRef.current = controller;
             try {
                 setLoadingPairing(true);
                 const apiKey = import.meta.env.VITE_SPOONACULAR_API_KEY;
-                const {data} = await axios.get('https://api.spoonacular.com/food/wine/pairing', {
-                    params: {apiKey, food: query}
-                });
+                const {data} = await axios.get('https://api.spoonacular.com/food/wine/pairing',
+                    {
+                        params: { apiKey, food: query },
+                        signal: controller.signal,
+                    });
                 console.log("Pairing data:", data);
                 setPairing(data);
 
@@ -39,7 +44,11 @@ function Results() {
 
         if (query) {
             fetchPairing();
-        }
+        } return () => {
+            if (abortControllerRef.current) {
+                abortControllerRef.current.abort();
+            }
+        };
     }, [query]);
 
     const handleWineClick = (wineName) => {
