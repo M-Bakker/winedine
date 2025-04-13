@@ -28,14 +28,14 @@ function Favorites() {
 
     return (
         <main className="favorites-page">
-            <section className="favorites-section">
+            <section className="page-section">
                 <h1>Your Favorites</h1>
                 <input
                     type="text"
                     placeholder="Search favorites..."
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
-                    className="favorites-search"
+                    className="input-field"
                 />
                 {filteredFavorites.length === 0 ? (
                     <p>You have no favorites yet.</p>
@@ -50,7 +50,7 @@ function Favorites() {
             <figure className="line-2">
                 <img src={line} alt="Line 2"/>
             </figure>
-            <section className="favorites-section">
+            <section className="page-section">
                 <figure>
                     <img className="wine-heart" src={heart} alt="Wine heart image"/>
                 </figure>

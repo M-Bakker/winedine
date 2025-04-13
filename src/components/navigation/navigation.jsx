@@ -10,7 +10,7 @@ function Navigation() {
             <img src={logo} alt="Logo" width="300px"/>
         <nav className="navigation">
             <ul className="navigation-links">
-                <li><NavLink to="/" className={({ isActive }) => isActive ? "default-link active-link" : "default-link"}>Search</NavLink></li>
+                <li><NavLink to="/search" className={({ isActive }) => isActive ? "default-link active-link" : "default-link"}>Search</NavLink></li>
                 <img src={line} alt="Line 1"/>
                 <li><NavLink to="/favorites" className={({ isActive }) => isActive ? "default-link active-link" : "default-link"}>Favorites</NavLink></li>
             </ul>

@@ -1,6 +1,6 @@
 import React, {useContext} from 'react';
 import './App.css';
-import {Routes, Route} from 'react-router-dom';
+import {Routes, Route, useLocation} from 'react-router-dom';
 import Login from "./pages/login/login.jsx";
 import Search from "./pages/search/search.jsx";
 import Results from "./pages/results/results.jsx";
@@ -12,13 +12,16 @@ import { AuthContext } from './context/AuthContext.jsx';
 
 function App() {
     const { isAuth } = useContext(AuthContext);
+    const location = useLocation();
+
+    const hideNavigation = location.pathname === "/";
 
     return (
         <>
-            <Navigation />
+            {!hideNavigation && <Navigation />}
             <Routes>
-                <Route path="/" element={<Search/>}/>
-                <Route path="/login" element={<Login/>}/>
+                <Route path="/" element={<Login/>}/>
+                <Route path="/search" element={<Search/>}/>
                 <Route path="/results" element={<Results/>}/>
                 <Route path="/details" element={<Details/>}/>
                 <Route path="favorites" element={<Favorites/>}/>
