@@ -1,6 +1,6 @@
 import React, {useContext} from 'react';
 import './App.css';
-import {Routes, Route, useLocation} from 'react-router-dom';
+import {Routes, Route, useLocation, Navigate} from 'react-router-dom';
 import Login from "./pages/login/login.jsx";
 import Search from "./pages/search/search.jsx";
 import Results from "./pages/results/results.jsx";
@@ -21,10 +21,10 @@ function App() {
             {!hideNavigation && <Navigation />}
             <Routes>
                 <Route path="/" element={<Login/>}/>
-                <Route path="/search" element={<Search/>}/>
-                <Route path="/results" element={<Results/>}/>
-                <Route path="/details" element={<Details/>}/>
-                <Route path="favorites" element={<Favorites/>}/>
+                <Route path="/search" element={isAuth ? <Search /> : <Navigate to="/"/>}/>
+                <Route path="/results" element={isAuth ? <Results /> : <Navigate to="/"/>}/>
+                <Route path="/details" element={isAuth ? <Details /> : <Navigate to="/"/>}/>
+                <Route path="favorites" element={isAuth ? <Favorites /> : <Navigate to="/"/>}/>
                 <Route path="*" element={<NotFound/>}/>
             </Routes>
         </>
