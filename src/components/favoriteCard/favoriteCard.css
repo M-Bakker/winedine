@@ -1,13 +1,9 @@
-.favorites {
-    display: flex;
-    flex-direction: column;
-}
-
 .favorites-card {
     display: flex;
-    flex-direction: row;
-    width: 600px;
-    height: 250px;
+    flex-direction: column;
+    width: 100%;
+    max-width: 600px;
+    min-height: 250px;
     background-color: rgba(255, 255, 255, 0.1);
     border: 1px solid black;
     padding: 1rem;
@@ -17,9 +13,26 @@
 }
 
 .favorites-card-info {
+    flex: 1;
     display: flex;
-    width: 80%;
     flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.favorites-card-info h2 {
+    font-size: 1.5rem;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.favorites-card-info p {
+    font-size: 0.8rem;
+    line-height: 1.3;
+    margin: 0.5rem 0;
+    overflow-wrap: break-word;
 }
 
 .favorites-card-image {
@@ -27,4 +40,51 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-top: 1rem;
+    border-radius: 1rem;
+}
+
+.favorites-card-image img {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+@media (min-width: 768px) {
+    .favorites-card {
+        flex-direction: row;
+        height: 250px;
+    }
+
+    .favorites-card-info {
+        flex: 0 1 60%;
+        padding-right: 1rem;
+    }
+
+    .favorites-card-image {
+        flex: 0 1 40%;
+        margin-top: 0;
+    }
+
+    .favorites-card-info h2 {
+        font-size: 1.2rem;
+    }
+
+    .favorites-card-info p {
+        font-size: 1rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .favorites-card {
+        max-width: 600px;
+    }
+
+    .favorites-card-info h2 {
+        font-size: 1.5rem;
+    }
+
+    .favorites-card-info p {
+        font-size: 0.8rem;
+    }
 }
