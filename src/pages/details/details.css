@@ -1,9 +1,6 @@
-.details-section {
+.details {
     display: flex;
     flex-direction: row;
-    align-items: flex-start;
-    padding: 2rem;
-    min-height: 100vh;
 }
 
 .details-content {

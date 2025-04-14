@@ -41,17 +41,16 @@ function DetailCard({selectedWineCategory}) {
         <section className="recommendations">
             <div className="detail-card" onClick={handleCardClick} style={{cursor: 'pointer'}}>
                 <div className="detail-card-info">
-                    <h3>{product.title}</h3>
+                    <h2>{product.title}</h2>
                     <p>{trimDescription(product.description)}</p>
                     <p>Price: {product.price}</p>
                     <p>Average rating: {product.averageRating}</p>
 
                 </div>
-                <div className="detail-card-img">
+                <div className="detail-card-image">
                     <img
                         src={product.imageUrl}
                         alt={product.title}
-                        className="detail-card-image"
                     />
                 </div>
 
