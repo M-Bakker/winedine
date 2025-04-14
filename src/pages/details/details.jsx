@@ -39,7 +39,7 @@ function DetailPage() {
 
     if (!product) {
         return (
-            <div className="details-section">
+            <div className="page-container">
                 <p>No product data available.</p>
                 <button onClick={() => navigate(-1)}>Go back</button>
             </div>
@@ -49,8 +49,8 @@ function DetailPage() {
     const {title, description, imageUrl, price, averageRating, link} = product;
 
     return (
-        <main className="details-section">
-            <section className="details-content">
+        <main className="page-container">
+            <section className="page-section">
                 <h1>{title}</h1>
                 <div className="details-info">
                     <p>{description}</p>
@@ -74,7 +74,7 @@ function DetailPage() {
             <figure>
                 <img className="line-2" src={line} alt="Line 2"/>
             </figure>
-            <section className="details-section">
+            <section className="page-section details">
                 <figure className="details-image">
                     <img src={imageUrl} alt={title}/>
                 </figure>

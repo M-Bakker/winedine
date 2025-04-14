@@ -27,7 +27,7 @@ function Favorites() {
     );
 
     return (
-        <main className="favorites-page">
+        <main className="page-container">
             <section className="page-section">
                 <h1>Your Favorites</h1>
                 <input

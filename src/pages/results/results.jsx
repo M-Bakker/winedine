@@ -65,8 +65,8 @@ function Results() {
     const {pairedWines, pairingText} = pairing;
 
     return (
-        <main className="results-page">
-            <section className="page-section ">
+        <main className="page-container">
+            <section className="page-section">
                 <h1>What wine goes with {query}?</h1>
                 <div className="results-content">
                     <PairedWines
@@ -80,7 +80,7 @@ function Results() {
             <figure className="line-2">
                 <img  src={line} alt="Line 2"/>
             </figure>
-            <section className="page-section ">
+            <section className="page-section">
                 <h1>Best picks for {selectedWineCategory}:</h1>
                 <div className="results-content">
                     <DetailCard selectedWineCategory={selectedWineCategory}/>

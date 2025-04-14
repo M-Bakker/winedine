@@ -1,14 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&di  splay=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
-  color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #FFA3A4;
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -35,7 +32,7 @@ h1 {
   font-family: 'Merriweather', cursive;
   color: #7F171F;
   font-weight: 400;
-  font-size: 3.2em;
+  font-size: 2.5em;
   text-align: left;
 }
 
@@ -43,13 +40,14 @@ h2 {
   font-family: 'Merriweather', cursive;
   color: #7F171F;
   font-weight: 200;
-  font-size: 1.3em;
+  font-size: 1.1em;
 }
 
 p {
   font-family: 'Merriweather', cursive;
   color: black;
   text-align: left;
+  font-size: 0.9em;
 }
 
 button {
@@ -61,12 +59,28 @@ button {
   font-weight: 500;
   font-family: inherit;
   background-color: #7F171F;
+  color: #fff;
   cursor: pointer;
   transition: border-color 0.25s;
 }
 
+button:hover {
+  border-color: #646cff;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
 .input-field {
-  width: 300px;
+  width: 90%;
+  max-width: 300px;
   padding: 0.5rem 1rem;
   margin: 0.5rem auto;
   border: 1px solid #7F171F;
@@ -78,23 +92,92 @@ button {
   outline: none;
 }
 
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+@media (max-width: 480px) {
+  :root {
+    font-size: 14px;
+  }
+
+  h1 {
+    font-size: 2em;
+  }
+
+  h2 {
+    font-size: 1em;
+  }
+
+  p {
+    font-size: 0.85em;
+  }
+
+  .input-field {
+    padding: 0.4rem 0.8rem;
+  }
+
+  button {
+    padding: 0.5em 1em;
+    font-size: 0.9em;
+  }
 }
 
-@media (prefers-color-scheme: light) {
+@media (min-width: 768px) {
   :root {
-    color: #213547;
-    background-color: #FFA3A4;
+    font-size: 16px;
   }
+
+  h1 {
+    font-size: 3.2em;
+  }
+
+  h2 {
+    font-size: 1.3em;
+  }
+
+  p {
+    font-size: 1em;
+  }
+
+  .input-field {
+    width: 300px;
+  }
+
+  button {
+    font-size: 1em;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    font-size: 16px;
+  }
+
+  h1 {
+    font-size: 3.2em;
+  }
+
+  h2 {
+    font-size: 1.3em;
+  }
+
+  p {
+    font-size: 1em;
+  }
+
+  .input-field {
+    width: 300px;
+  }
+
+  button {
+    font-size: 1em;
+  }
+}
+
+@media {
+  :root {
+    color: white;
+  }
+
   a:hover {
     color: #747bff;
   }
-  button {
-    background-color: #FFA3A4;
-  }
+
 }

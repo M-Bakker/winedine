@@ -77,7 +77,7 @@ function Login() {
     };
 
     return (
-        <main className="login-page">
+        <main className="page-container">
             <section className="page-section">
                 <img src={logo} alt="Logo" width="500px"/>
                 <p>WineDine is your ultimate guide to perfect wine and food pairings!</p>
