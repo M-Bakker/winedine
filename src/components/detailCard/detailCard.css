@@ -45,6 +45,18 @@
     border-radius: 1rem;
 }
 
+.filter-controls {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 1rem;
+}
+
+.filter-controls input {
+    margin-left: 0.5rem;
+    padding: 0.3rem 0.5rem;
+    font-size: 1rem;
+    width: 100px;
+}
 
 @media (min-width: 768px) {
     .detail-card {
