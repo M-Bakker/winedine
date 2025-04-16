@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useWineRecommendations } from '../../hooks/useWineRecommendations';
 import { useNavigate } from 'react-router-dom';
 import './detailCard.css';
+import MaxPriceFilter from '../maxPriceFilter/maxPriceFilter.jsx';
 
 function DetailCard({ selectedWineCategory }) {
     const navigate = useNavigate();
@@ -39,16 +40,7 @@ function DetailCard({ selectedWineCategory }) {
     if (filteredWines.length === 0) {
         return (
             <section className="recommendations">
-                <div>
-                        <input
-                            type="number"
-                            value={maxPrice}
-                            onChange={(e) => setMaxPrice(e.target.value)}
-                            placeholder="Max price"
-                            min="0"
-                            className="input-field"
-                        />
-                </div>
+                <MaxPriceFilter maxPrice={maxPrice} onChange={setMaxPrice} />
                 <div className="detail-card">No wines available below this price.</div>
             </section>
         );
@@ -67,16 +59,7 @@ function DetailCard({ selectedWineCategory }) {
 
     return (
         <section className="recommendations">
-            <div>
-                <input
-                        type="number"
-                        value={maxPrice}
-                        onChange={(e) => setMaxPrice(e.target.value)}
-                        placeholder="Max price"
-                        min="0"
-                        className="input-field"
-                    />
-            </div>
+            <MaxPriceFilter maxPrice={maxPrice} onChange={setMaxPrice} />
             <article className="detail-card" onClick={handleCardClick} style={{ cursor: 'pointer' }}>
                 <div className="detail-card-info">
                     <h2>{product.title}</h2>
@@ -88,6 +71,7 @@ function DetailCard({ selectedWineCategory }) {
                     <img src={product.imageUrl} alt={product.title} />
                 </div>
             </article>
+
             <nav className="pagination-controls">
                 <button onClick={handlePrev} disabled={currentDetailIndex === 0}>Previous</button>
                 <button onClick={handleNext} disabled={currentDetailIndex >= filteredWines.length - 1}>Next</button>
