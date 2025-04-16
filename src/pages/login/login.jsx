@@ -1,10 +1,10 @@
 import React, {useContext, useEffect, useRef, useState} from 'react';
-import line from "../../assets/images/line-2.png";
-import logo from "../../assets/images/logo-winedine.png";
-import winebottles from "/src/assets/images/wijnflessen.png";
+import line from '../../assets/images/line-2.png';
+import logo from '../../assets/images/logo-winedine.png';
+import winebottles from '/src/assets/images/wijnflessen.png';
 import './login.css';
-import axios from "axios";
-import {AuthContext} from "../../context/authContext.jsx";
+import axios from 'axios';
+import {AuthContext} from '../../context/authContext.jsx';
 
 function Login() {
     const [isRegister, setIsRegister] = useState(false);

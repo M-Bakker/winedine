@@ -77,7 +77,7 @@ function DetailCard({ selectedWineCategory }) {
                         className="input-field"
                     />
             </div>
-            <div className="detail-card" onClick={handleCardClick} style={{ cursor: 'pointer' }}>
+            <article className="detail-card" onClick={handleCardClick} style={{ cursor: 'pointer' }}>
                 <div className="detail-card-info">
                     <h2>{product.title}</h2>
                     <p>{trimDescription(product.description)}</p>
@@ -87,11 +87,11 @@ function DetailCard({ selectedWineCategory }) {
                 <div className="detail-card-image">
                     <img src={product.imageUrl} alt={product.title} />
                 </div>
-            </div>
-            <div className="pagination-controls">
+            </article>
+            <nav className="pagination-controls">
                 <button onClick={handlePrev} disabled={currentDetailIndex === 0}>Previous</button>
                 <button onClick={handleNext} disabled={currentDetailIndex >= filteredWines.length - 1}>Next</button>
-            </div>
+            </nav>
         </section>
     );
 }

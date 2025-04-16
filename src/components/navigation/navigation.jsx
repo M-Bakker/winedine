@@ -12,7 +12,7 @@ function Navigation() {
     const toggleMenu = () => setMenuOpen(!menuOpen);
 
     return (
-        <div className="navigation-header">
+        <section className="navigation-header">
             <NavLink to="/search">
                 <img src={logo} alt="Logo" width="300px" />
             </NavLink>
@@ -48,7 +48,7 @@ function Navigation() {
                     </li>
                 </ul>
             </nav>
-        </div>
+        </section>
     );
 }
 

@@ -3,7 +3,7 @@ import {useLocation, useNavigate} from 'react-router-dom';
 import addToFavoritesIcon from '/src/assets/images/add-to-favorites-icon.png';
 import checkFavoritesIcon from '/src/assets/images/check-favorites-icon.png';
 import './details.css';
-import line from "../../assets/images/line-2.png";
+import line from '../../assets/images/line-2.png';
 
 function DetailPage() {
     const location = useLocation();

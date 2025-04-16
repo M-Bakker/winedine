@@ -3,12 +3,6 @@
     flex-direction: row;
 }
 
-.details-content {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-}
-
 .details-image img {
     max-width: 200px;
     border-radius: 8px;
