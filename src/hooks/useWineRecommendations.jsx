@@ -17,7 +17,7 @@ export function useWineRecommendations(selectedWineCategory) {
                     params: {
                         apiKey,
                         wine: selectedWineCategory,
-                        number: 5,
+                        number: 10,
                     },
                     signal: controller.signal,
                 });
