@@ -3,6 +3,7 @@ import FavoriteCard from '/src/components/favoriteCard/FavoriteCard.jsx';
 import './favorites.css';
 import line from "../../assets/images/line-2.png";
 import heart from "../../assets/images/wine-heart.png";
+import SearchFavoritesInput from '/src/components/searchFavoritesInput/searchFavoritesInput.jsx';
 
 function Favorites() {
     const [favorites, setFavorites] = useState([]);
@@ -30,13 +31,7 @@ function Favorites() {
         <main className="page-container">
             <section className="page-section">
                 <h1>Your Favorites</h1>
-                <input
-                    type="text"
-                    placeholder="Search favorites..."
-                    value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
-                    className="input-field"
-                />
+                <SearchFavoritesInput value={searchTerm} onChange={setSearchTerm} />
                 {filteredFavorites.length === 0 ? (
                     <p>You have no favorites yet.</p>
                 ) : (
