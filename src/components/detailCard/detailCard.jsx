@@ -39,13 +39,14 @@ function DetailCard({ selectedWineCategory }) {
     if (filteredWines.length === 0) {
         return (
             <section className="recommendations">
-                <div className="filter-controls">
+                <div>
                         <input
                             type="number"
                             value={maxPrice}
                             onChange={(e) => setMaxPrice(e.target.value)}
                             placeholder="Max price"
                             min="0"
+                            className="input-field"
                         />
                 </div>
                 <div className="detail-card">No wines available below this price.</div>
@@ -66,13 +67,14 @@ function DetailCard({ selectedWineCategory }) {
 
     return (
         <section className="recommendations">
-            <div className="filter-controls">
+            <div>
                 <input
                         type="number"
                         value={maxPrice}
                         onChange={(e) => setMaxPrice(e.target.value)}
                         placeholder="Max price"
                         min="0"
+                        className="input-field"
                     />
             </div>
             <div className="detail-card" onClick={handleCardClick} style={{ cursor: 'pointer' }}>
