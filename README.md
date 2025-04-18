@@ -74,4 +74,15 @@ Ga naar: http://localhost:5173/
   en kies een wachtwoord van minimaal 6 karakters.
 - Heb je al een account? Je kunt direct inloggen.
 
+8. Beperking zoekopdrachten
+
+Helaas beperkt de applicatie zich momenteel nog tot de volgende zoekopdrachten:
+
+   "steak", "pasta carbonara", "pork", "duck", "cheddar", "scallops", "tofu", "hamburger",
+   "lasagna", "ravioli", "risotto", "caesar salad", "beef stew", "burrito", "quesadilla", "enchiladas",
+   "ramen", "pho", "bibimbap", "paella", "curry", "biryani", "samosa", "spring rolls", "oysters",
+   "scampi", "chicken tikka masala", "fajitas", "gnocchi", "bruschetta", "dim sum", "kung pao chicken",
+   "coq au vin", "beef bourguignon", "goulash", "mac and cheese", "baked ziti", "pot roast",
+   "carbonara", "eggplant parmesan",
+
 **Veel plezier!**
