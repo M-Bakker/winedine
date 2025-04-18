@@ -27,11 +27,11 @@ function FavoriteCard({ product, onRemove }) {
     };
 
     return (
-        <div className="favorites">
-            <div className="favorites-card" onClick={handleCardClick} style={{ cursor: 'pointer', position: 'relative' }}>
-                <div className="favorites-trash" onClick={handleRemove} style={{ position: 'absolute', top: 5, right: 5, cursor: 'pointer' }}>
+        <section className="favorites">
+            <article className="favorites-card" onClick={handleCardClick} style={{ cursor: 'pointer', position: 'relative' }}>
+                <figure className="favorites-trash" onClick={handleRemove} style={{ position: 'absolute', top: 5, right: 5, cursor: 'pointer' }}>
                     <img src={deleteFavorite} alt="Remove from favorites"/>
-                </div>
+                </figure>
                 <section className="favorites-card-info">
                     <h2>{product.title}</h2>
                     <p>{trimDescription(product.description)}</p>
@@ -45,8 +45,8 @@ function FavoriteCard({ product, onRemove }) {
                         className="favorites-card-image"
                     />
                 </section>
-            </div>
-        </div>
+            </article>
+        </section>
     );
 }
 

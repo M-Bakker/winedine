@@ -11,19 +11,12 @@ function Search() {
     const navigate = useNavigate();
 
     const pairableFoods = [
-        "steak", "pasta carbonara", "chicken", "salmon", "pasta", "lamb", "pork", "duck",
-        "mushrooms", "cheddar", "blue cheese", "shrimp", "scallops", "tofu", "pizza", "hamburger", "sushi",
-        "lasagna", "ravioli", "risotto", "caesar salad", "club sandwich", "french fries", "falafel", "curry chicken",
-        "beef stew", "fish and chips", "burrito", "tacos", "quesadilla", "enchiladas", "pancakes", "waffles", "omelette",
-        "frittata", "croissant", "bagel", "chili", "gumbo", "stir-fry vegetables", "ramen", "udon noodles", "pho",
-        "bibimbap", "paella", "curry", "biryani", "souvlaki", "gyro", "kebab", "shawarma", "pita", "hummus",
-        "samosa", "spring rolls", "dumplings", "pot roast", "mac and cheese", "baked ziti", "casserole", "quiche",
-        "fajitas", "steamed dumplings", "noodles", "sandwich", "steamed rice", "fried rice", "cauliflower rice",
-        "grilled cheese", "BLT", "ribs", "pork chops", "meatloaf", "salad", "greek salad", "potato salad",
-        "coleslaw", "broccoli stir-fry", "roast beef", "corned beef", "pastrami", "brisket", "baked beans",
-        "mashed potatoes", "roasted potatoes", "sweet potatoes", "currywurst", "bratwurst", "schnitzel", "goulash",
-        "pierogi", "cabbage rolls", "beef Wellington", "lobster bisque", "clam chowder", "crab cakes", "oysters",
-        "steamed mussels", "scampi"
+        "steak", "pasta carbonara", "pork", "duck", "cheddar", "scallops", "tofu", "hamburger",
+        "lasagna", "ravioli", "risotto", "caesar salad", "beef stew", "burrito", "quesadilla", "enchiladas",
+        "ramen", "pho", "bibimbap", "paella", "curry", "biryani", "samosa", "spring rolls", "oysters",
+        "scampi", "chicken tikka masala", "fajitas", "gnocchi", "bruschetta", "dim sum", "kung pao chicken",
+        "coq au vin", "beef bourguignon", "goulash", "mac and cheese", "baked ziti", "pot roast",
+        "carbonara", "eggplant parmesan",
     ];
 
     const handleInputChange = (e) => {

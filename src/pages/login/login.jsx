@@ -1,10 +1,11 @@
 import React, {useContext, useEffect, useRef, useState} from 'react';
-import line from "../../assets/images/line-2.png";
-import logo from "../../assets/images/logo-winedine.png";
-import winebottles from "/src/assets/images/wijnflessen.png";
+import { useNavigate } from 'react-router-dom';
+import line from '../../assets/images/line-2.png';
+import logo from '../../assets/images/logo-winedine.png';
+import winebottles from '/src/assets/images/wijnflessen.png';
 import './login.css';
-import axios from "axios";
-import {AuthContext} from "../../context/authContext.jsx";
+import axios from 'axios';
+import {AuthContext} from '../../context/authContext.jsx';
 
 function Login() {
     const [isRegister, setIsRegister] = useState(false);
@@ -14,6 +15,7 @@ function Login() {
     const { login } = useContext(AuthContext);
     const [error, setError] = useState("");
     const abortControllerRef = useRef(null);
+    const navigate = useNavigate();
 
     useEffect(() => {
         return () => {
@@ -39,12 +41,21 @@ function Login() {
                     { signal: controller.signal }
                 );
                 console.log(response);
+                if (response.status === 200 || response.status === 201) {
+                    const response = await axios.post("https://frontend-educational-backend.herokuapp.com/api/auth/signin", {
+                        username: userName,
+                        password: password,
+                    });
+                    if (response.status === 200) {
+                        login(response.data.accessToken);
+                        navigate('/search');
+                    }
+                }
             } catch (error) {
                 console.log(error);
                 console.log(error.response ? error.response.data : error);
-                setError("Registration failed. Please check your inputs.");
+                setError("Registration failed. Please check your inputs. " + error.response.data.message);
             } finally {
-                setIsRegister(false);
                 setUserName("");
                 setEmail("");
                 setPassword("");
